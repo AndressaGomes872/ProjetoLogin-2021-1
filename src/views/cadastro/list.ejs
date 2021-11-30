@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+   
+</head>
+<body>
+    <style>
+        table, tr, td, th{
+            border: 1px solid black;
+        }
+        tr, td, th{
+            padding: 10px;
+            text-align: center;
+        }
+        ul{
+            margin-bottom: 15px;
+        }
+        input{
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+        img{
+            min-height: 100px;
+            max-width:100px ;
+        }
+        .icon{
+            max-width: 100px;
+            max-height: 100px;
+        }
+    </style>
+    <ul>
+        <li>
+            <a href="/admin/cadastro/">Listar</a>
+        </li>
+        <li>
+            <a href="/admin/cadastro/add">Adicionar</a>
+        </li>
+    </ul>
+    <form  method="post">
+        <input type="text" name="pesquisar">
+        <input type="submit" value="Pesquisar">
+    </form>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>nome</th>
+            <th>sobrenome</th>
+            <th>endereco</th>
+            <th>nascimento</th>
+            <th>email</th>
+            <th>senha</th>
+            <th>foto</th>
+            <th>edita</th>
+            <th>deleta</th>
+        </tr>
+        <% Cadastros.forEach(function(cadastro){ %>
+        <tr>
+            <td><%=cadastro.id%></td>
+            <td><%=cadastro.nome%></td>
+            <td><%=cadastro.sobrenome%></td>
+            <td><%=cadastro.endereco%></td>
+            <td><%=cadastro.nascimento%></td>
+            <td><%=cadastro.email%></td>
+            <td><%=cadastro.senha%></td>
+            <td>
+               <img src="/uploads/<%=cadastro.foto%>">
+            </td>
+            <td>
+                <a href="/admin/cadastro/edt/<%=cadastro.id%>">
+                    <img src="/edit.png" class="icon">
+                </a> 
+            </td>
+            <td>
+               <a href="/admin/cadastro/del/<%=cadastro.id%>">
+                   <img src="/images.jpg" class="icon">
+               </a> 
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+    <h2><%=msg%></h2>
+   
+</body>
+</html>

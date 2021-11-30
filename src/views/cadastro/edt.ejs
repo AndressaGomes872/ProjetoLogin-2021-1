@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adiciona Cadastro</title>
+
+</head>
+
+<body>
+    <style>
+        table, tr, td, th{
+            border: 1px solid black;
+        }
+        tr, td, th{
+            padding: 10px;
+            text-align: center;
+        }
+        ul{
+            margin-bottom: 15px;
+        }
+        input{
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+        img{
+            min-height: 200px;
+            max-width:200px ;
+        }
+    </style>
+    <ul>
+        <li>
+            <a href="/admin/cadastro/">Listar</a>
+        </li>
+        <li>
+            <a href="/admin/cadastro/add">Adicionar</a>
+        </li>
+    </ul>
+    
+    <form method="post" enctype="multipart/form-data">
+        Id: <input type="text" name="id" readonly value="<%=cadastro.id%>"> <br>
+        Nome: <input type="text" name="nome" placeholder="Digite seu nome" value="<%=cadastro.nome%>"><br>
+        Sobrenome: <input type="text" name="sobrenome" placeholder="Digite seu sobrenome" value="<%=cadastro.sobrenome%>"><br>
+        Endereco: <input type="text" name="endereco" placeholder="Digite seu endereço" value="<%=cadastro.endereco%>"><br>
+        Nascimento: <input type="text" name="nascimento" placeholder="Qual é sua data de nascimento " value="<%=cadastro.nascimento%>"><br>
+        Email: <input type="email" name="email" placeholder="Digite seu email" value="<%=cadastro.email%>"><br>
+        Senha: <input type="password" name="senha" placeholder="Digite sua senha" value="<%=cadastro.senha%>"><br>
+        <img src="/uploads/<%=cadastro.foto%>" ><br>
+        Se desejar alterar a imagem selecione uma nova: <input type="file" name="foto"><br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
